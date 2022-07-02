@@ -19,4 +19,7 @@ ffmpeg -i input.mp4 -vf "scale=iw/2:ih/2" -c:v libx265 -crf 28 half_the_frame_si
 
 #mov to mp4
 ffmpeg -i input.mov -vcodec h264 -acodec mp2 input.mp4
-```
+
+#mp4 to gif
+ffmpeg -i input.mp4 output.gif
+
