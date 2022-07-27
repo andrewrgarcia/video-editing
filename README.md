@@ -23,3 +23,5 @@ ffmpeg -i input.mov -vcodec h264 -acodec mp2 input.mp4
 #mp4 to gif
 ffmpeg -i input.mp4 output.gif
 
+#video to audio
+ffmpeg -i input.MOV -c:a libmp3lame -q:a 0 -map a output.mp3
