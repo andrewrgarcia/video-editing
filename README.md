@@ -1,6 +1,9 @@
 # video-editing
 
-````ruby
+## for single video file
+
+### video manipulation 
+```ruby
 #to cut video
 ffmpeg -i input.mp4 -ss 00:00:01 -t 00:10:00 -async 1 out.mp4
 
@@ -17,6 +20,12 @@ ffmpeg -i input.mp4 -vcodec libx265 -crf 28 out.mp4
 
 ffmpeg -i input.mp4 -vf "scale=iw/2:ih/2" -c:v libx265 -crf 28 half_the_frame_size.mp4
 
+#remove sound from video
+ffmpeg -i input.mp4 -c copy -an output.mp4
+```
+### format conversions
+
+```ruby
 #mov to mp4
 ffmpeg -i input.mov -vcodec h264 -acodec mp2 input.mp4
 
@@ -25,3 +34,19 @@ ffmpeg -i input.mp4 output.gif
 
 #video to audio
 ffmpeg -i input.MOV -c:a libmp3lame -q:a 0 -map a output.mp3
+```
+
+
+## for multiple video files
+
+### merging videos
+
+`my_list.txt:`
+# videos to merge:
+file 'land.mp4'
+file 'landmap.mp4'
+
+````ruby
+#merge videos
+ffmpeg -f concat -safe 0 -i my_list.txt -c copy output.mp4
+```
