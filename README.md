@@ -41,7 +41,7 @@ ffmpeg -i input.MOV -c:a libmp3lame -q:a 0 -map a output.mp3
 
 ### merging videos
 
-`my_list.txt:`
+**my_list.txt:**
 ```
 # videos to merge:
 file 'land.mp4'
